@@ -17,17 +17,23 @@ public class Day01 implements Day {
     }
 
     public int RunPartOne() {
-        List<Integer> sums = elves.stream().map(elfList -> elfList.stream().mapToInt(Integer::intValue).sum()).toList();
+        List<Integer> sums = elves.stream()
+                .map(elfList -> elfList.stream().mapToInt(Integer::intValue).sum())
+                .toList();
         return Collections.max(sums);
     }
 
     public int RunPartTwo() {
-        List<Integer> sums = elves.stream().map(elfList -> elfList.stream().mapToInt(Integer::intValue).sum()).sorted(Comparator.reverseOrder()).toList();
+        List<Integer> sums = elves.stream()
+                .map(elfList -> elfList.stream().mapToInt(Integer::intValue).sum())
+                .sorted(Comparator.reverseOrder())
+                .toList();
         return sums.stream().limit(3).mapToInt(Integer::intValue).sum();
     }
 
     public static void main(String[] args) {
-        Day01 day01 = new Day01(new File("D:\\programmeer projecten\\AdventofCode\\AdventofCode2022\\AdventOfCode2022\\inputs\\Day01.txt"));
+        Day01 day01 = new Day01(new File(
+                "D:\\programmeer projecten\\AdventofCode\\AdventofCode2022\\AdventOfCode2022\\inputs\\Day01.txt"));
         int partOne = day01.RunPartOne();
         int partTwo = day01.RunPartTwo();
         System.out.println("Part one: " + partOne);
