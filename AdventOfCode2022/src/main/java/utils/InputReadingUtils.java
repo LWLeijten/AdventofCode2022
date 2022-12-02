@@ -7,7 +7,7 @@ import java.util.List;
 import java.util.Scanner;
 
 public class InputReadingUtils {
-    public static List<List<Integer>> ReadListOfListOfInts(File input) {
+    public static List<List<Integer>> readListOfListOfInts(File input) {
         List<List<Integer>> list = new ArrayList<>();
         List<Integer> currentList = new ArrayList<>();
         try {
@@ -22,6 +22,20 @@ public class InputReadingUtils {
                 }
             }
             list.add(currentList);
+            scanner.close();
+        } catch (FileNotFoundException e) {
+            e.printStackTrace();
+        }
+        return list;
+    }
+
+    public static List<String> readListOfStrings(File input) {
+        List<String> list = new ArrayList<>();
+        try {
+            Scanner scanner = new Scanner(input);
+            while (scanner.hasNextLine()) {
+                list.add(scanner.nextLine());
+            }
             scanner.close();
         } catch (FileNotFoundException e) {
             e.printStackTrace();

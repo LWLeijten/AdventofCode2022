@@ -7,23 +7,23 @@ import java.util.Collections;
 import java.util.Comparator;
 import java.util.List;
 
-import static utils.InputReadingUtils.ReadListOfListOfInts;
+import static utils.InputReadingUtils.readListOfListOfInts;
 
 public class Day01 implements Day {
     List<List<Integer>> elves;
 
     public Day01(File input) {
-        elves = ReadListOfListOfInts(input);
+        elves = readListOfListOfInts(input);
     }
 
-    public int RunPartOne() {
+    public int runPartOne() {
         List<Integer> sums = elves.stream()
                 .map(elfList -> elfList.stream().mapToInt(Integer::intValue).sum())
                 .toList();
         return Collections.max(sums);
     }
 
-    public int RunPartTwo() {
+    public int runPartTwo() {
         List<Integer> sums = elves.stream()
                 .map(elfList -> elfList.stream().mapToInt(Integer::intValue).sum())
                 .sorted(Comparator.reverseOrder())
@@ -34,8 +34,8 @@ public class Day01 implements Day {
     public static void main(String[] args) {
         Day01 day01 = new Day01(new File(
                 "D:\\programmeer projecten\\AdventofCode\\AdventofCode2022\\AdventOfCode2022\\inputs\\Day01.txt"));
-        int partOne = day01.RunPartOne();
-        int partTwo = day01.RunPartTwo();
+        int partOne = day01.runPartOne();
+        int partTwo = day01.runPartTwo();
         System.out.println("Part one: " + partOne);
         System.out.println("Part two: " + partTwo);
     }
