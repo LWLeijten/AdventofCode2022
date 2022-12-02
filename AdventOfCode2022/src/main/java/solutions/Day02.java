@@ -11,26 +11,26 @@ import static utils.InputReadingUtils.readListOfStrings;
 public class Day02 implements Day {
 
     List<String> strategies;
-    Map<String, Integer> scoresStrategy1 = Map.of(
-            "A X", 4,
-            "A Y", 8,
-            "A Z", 3,
-            "B X", 1,
-            "B Y", 5,
-            "B Z", 9,
-            "C X", 7,
-            "C Y", 2,
-            "C Z", 6);
-    Map<String, Integer> scoresStrategy2 = Map.of(
-            "A X", 3,
-            "A Y", 4,
-            "A Z", 8,
-            "B X", 1,
-            "B Y", 5,
-            "B Z", 9,
-            "C X", 2,
-            "C Y", 6,
-            "C Z", 7);
+    Map<String, Integer> scoresStrategy1 = Map.ofEntries(
+            Map.entry("A X", 4),
+            Map.entry("A Y", 8),
+            Map.entry("A Z", 3),
+            Map.entry("B X", 1),
+            Map.entry("B Y", 5),
+            Map.entry("B Z", 9),
+            Map.entry("C X", 7),
+            Map.entry("C Y", 2),
+            Map.entry("C Z", 6));
+    Map<String, Integer> scoresStrategy2 = Map.ofEntries(
+            Map.entry("A X", 3),
+            Map.entry("A Y", 4),
+            Map.entry("A Z", 8),
+            Map.entry("B X", 1),
+            Map.entry("B Y", 5),
+            Map.entry("B Z", 9),
+            Map.entry("C X", 2),
+            Map.entry("C Y", 6),
+            Map.entry("C Z", 7));
 
     public Day02(File file) {
         strategies = readListOfStrings(file);
