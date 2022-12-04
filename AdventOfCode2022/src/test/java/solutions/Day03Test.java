@@ -17,12 +17,12 @@ public class Day03Test {
     }
 
     @Test
-    public void testDay02PartOne() {
+    public void testDay03PartOne() {
         assertEquals(8153, day03.runPartOne());
     }
 
     @Test
-    public void testDay02PartTwo() {
+    public void testDay03PartTwo() {
         assertEquals(2342, day03.runPartTwo());
     }
 }
