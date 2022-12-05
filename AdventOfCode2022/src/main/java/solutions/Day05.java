@@ -83,10 +83,10 @@ public class Day05 implements DayString {
     @Override
     public String runPartTwo() {
         for (StackInstruction instruction : instructions) {
-            for (int i = 0; i < instruction.amount(); i++) {
-                char popped = stacks.get(instruction.from()).pop();
-                Stack<Character> destination = stacks.get(instruction.to());
-                destination.add(destination.size() - i, popped);
+            for (int i = instruction.amount(); i > 0; i--) {
+                Stack<Character> source = stacks.get(instruction.from());
+                char popped = source.remove(source.size() - i);
+                stacks.get(instruction.to()).push(popped);
             }
         }
         return showTopOfStacks();
