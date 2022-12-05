@@ -1,7 +1,7 @@
 package utils;
 
-public interface Day {
-    public int runPartOne();
+public interface Day<T> {
+    public T runPartOne();
 
-    public int runPartTwo();
+    public T runPartTwo();
 }

@@ -9,21 +9,21 @@ import java.util.List;
 
 import static utils.InputReadingUtils.readListOfListOfInts;
 
-public class Day01 implements Day {
+public class Day01 implements Day<Integer> {
     List<List<Integer>> elves;
 
     public Day01(File input) {
         elves = readListOfListOfInts(input);
     }
 
-    public int runPartOne() {
+    public Integer runPartOne() {
         List<Integer> sums = elves.stream()
                 .map(elfList -> elfList.stream().mapToInt(Integer::intValue).sum())
                 .toList();
         return Collections.max(sums);
     }
 
-    public int runPartTwo() {
+    public Integer runPartTwo() {
         List<Integer> sums = elves.stream()
                 .map(elfList -> elfList.stream().mapToInt(Integer::intValue).sum())
                 .sorted(Comparator.reverseOrder())

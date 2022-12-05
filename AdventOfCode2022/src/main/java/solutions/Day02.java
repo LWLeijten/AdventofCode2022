@@ -8,7 +8,7 @@ import java.util.Map;
 
 import static utils.InputReadingUtils.readListOfStrings;
 
-public class Day02 implements Day {
+public class Day02 implements Day<Integer> {
 
     List<String> strategies;
     Map<String, Integer> scoresStrategy1 = Map.ofEntries(
@@ -44,12 +44,12 @@ public class Day02 implements Day {
     }
 
     @Override
-    public int runPartOne() {
+    public Integer runPartOne() {
         return runProblemWithStrategy(scoresStrategy1);
     }
 
     @Override
-    public int runPartTwo() {
+    public Integer runPartTwo() {
         return runProblemWithStrategy(scoresStrategy2);
     }
 

@@ -8,7 +8,7 @@ import java.util.List;
 
 import static utils.InputReadingUtils.readListOfRangePairs;
 
-public class Day04 implements Day {
+public class Day04 implements Day<Integer> {
     List<Pair<Pair<Integer>>> rangePairs;
 
     public Day04(File file) {
@@ -28,7 +28,7 @@ public class Day04 implements Day {
     }
 
     @Override
-    public int runPartOne() {
+    public Integer runPartOne() {
         return rangePairs.stream()
                 .map(rangePair -> rangesFullyOverlap(rangePair.elementOne(), rangePair.elementTwo()) ? 1 : 0)
                 .mapToInt(Integer::intValue)
@@ -36,7 +36,7 @@ public class Day04 implements Day {
     }
 
     @Override
-    public int runPartTwo() {
+    public Integer runPartTwo() {
         return rangePairs.stream()
                 .map(rangePair -> rangesOverlap(rangePair.elementOne(), rangePair.elementTwo()) ? 1 : 0)
                 .mapToInt(Integer::intValue)

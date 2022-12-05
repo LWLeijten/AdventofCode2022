@@ -18,11 +18,11 @@ public class Day01Test {
 
     @Test
     public void testDay01PartOne() {
-        assertEquals(68802, day01.runPartOne());
+        assertEquals(Integer.valueOf(68802), day01.runPartOne());
     }
 
     @Test
     public void testDay01PartTwo() {
-        assertEquals(205370, day01.runPartTwo());
+        assertEquals(Integer.valueOf(205370), day01.runPartTwo());
     }
 }

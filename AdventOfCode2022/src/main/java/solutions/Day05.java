@@ -1,12 +1,12 @@
 package solutions;
 
-import utils.DayString;
+import utils.Day;
 
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.util.*;
 
-public class Day05 implements DayString {
+public class Day05 implements Day<String> {
 
     List<Stack<Character>> stacks;
     List<StackInstruction> instructions;

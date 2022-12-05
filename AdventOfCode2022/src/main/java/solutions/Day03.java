@@ -8,7 +8,7 @@ import java.util.List;
 
 import static utils.InputReadingUtils.readListOfStrings;
 
-public class Day03 implements Day {
+public class Day03 implements Day<Integer> {
     List<String> rucksacks;
 
     public Day03(File input) {
@@ -32,7 +32,7 @@ public class Day03 implements Day {
         return '.';
     }
 
-    public int runPartOne() {
+    public Integer runPartOne() {
         int prioritySums = 0;
         for (String rucksack : rucksacks) {
             int halfway = rucksack.length() / 2;
@@ -44,7 +44,7 @@ public class Day03 implements Day {
         return prioritySums;
     }
 
-    public int runPartTwo() {
+    public Integer runPartTwo() {
         int prioritySums = 0;
         for (int i = 0; i < rucksacks.size(); i += 3) {
             char commonCharacter = getCommonCharacter(
