@@ -9,3 +9,4 @@ My solutions to the advent of code event 2022. For this edition I chose to solve
 | 3.  | :school_satchel:		 Rucksack Reorganization | [link](https://adventofcode.com/2022/day/3) | [solution](https://github.com/LWLeijten/AdventofCode2022/tree/main/AdventOfCode2022/src/main/java/solutions/Day03.java) |
 | 4.  | :broom:		 Camp Cleanup                     | [link](https://adventofcode.com/2022/day/4) | [solution](https://github.com/LWLeijten/AdventofCode2022/tree/main/AdventOfCode2022/src/main/java/solutions/Day04.java) |
 | 5.  | :package:		 Supply Stacks                  | [link](https://adventofcode.com/2022/day/5) | [solution](https://github.com/LWLeijten/AdventofCode2022/tree/main/AdventOfCode2022/src/main/java/solutions/Day05.java) |
+| 6.  | :signal_strength:		 Tuning Trouble         | [link](https://adventofcode.com/2022/day/6) | [solution](https://github.com/LWLeijten/AdventofCode2022/tree/main/AdventOfCode2022/src/main/java/solutions/Day06.java) |

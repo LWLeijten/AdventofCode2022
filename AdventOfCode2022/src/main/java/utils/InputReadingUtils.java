@@ -43,6 +43,16 @@ public class InputReadingUtils {
         return list;
     }
 
+    public static String readString(File input) {
+        try {
+            Scanner scanner = new Scanner(input);
+            return scanner.nextLine();
+        } catch (FileNotFoundException e) {
+            e.printStackTrace();
+        }
+        return "";
+    }
+
     public static List<Pair<Pair<Integer>>> readListOfRangePairs(File input) {
         List<Pair<Pair<Integer>>> list = new ArrayList<>();
         try {
