@@ -36,8 +36,7 @@ public class Day07 implements Day<Integer> {
         // Recursion
         int newSmallestDir;
         int size = fse.getSize();
-        int leftoverSize = TOTAL_DISK_SPACE - ROOT_SIZE + fse.getSize();
-        if (leftoverSize > NEEDED_DISK_SPACE) {
+        if (TOTAL_DISK_SPACE - ROOT_SIZE + size > NEEDED_DISK_SPACE) {
             newSmallestDir = size;
         } else {
             newSmallestDir = curSmallestDir;
