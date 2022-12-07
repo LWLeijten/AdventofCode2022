@@ -78,6 +78,10 @@ public class FileSystem {
             return children;
         }
 
+        public boolean isFile(){
+            return this.children.size() == 0;
+        }
+
         public FileSystemEntry getOrCreateDir(String name) {
             FileSystemEntry entry = children.stream()
                     .filter(ent -> ent.name.equals(name))

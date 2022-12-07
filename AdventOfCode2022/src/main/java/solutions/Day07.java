@@ -19,7 +19,7 @@ public class Day07 implements Day<Integer> {
 
     private int sumSmallDirs(FileSystem.FileSystemEntry fse) {
         // End case
-        if (fse.getChildren().size() == 0) {
+        if (fse.isFile()) {
             return 0;
         }
         // Recursion
@@ -30,7 +30,7 @@ public class Day07 implements Day<Integer> {
 
     private int findSmallestDeletableDir(FileSystem.FileSystemEntry fse, int curSmallestDir) {
         // End case
-        if (fse.getChildren().size() == 0) {
+        if (fse.isFile()) {
             return curSmallestDir;
         }
         // Recursion
