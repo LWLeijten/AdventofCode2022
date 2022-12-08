@@ -29,6 +29,25 @@ public class InputReadingUtils {
         return list;
     }
 
+    public static Matrix readNumberMatrix(File input) {
+        List<List<Integer>> matrix = new ArrayList<>();
+        try {
+            Scanner scanner = new Scanner(input);
+            while (scanner.hasNextLine()) {
+                String line = scanner.nextLine();
+                List<Integer> row = new ArrayList<>();
+                for (Character c : line.toCharArray()) {
+                    row.add(Character.getNumericValue(c));
+                }
+                matrix.add(row);
+            }
+            scanner.close();
+        } catch (FileNotFoundException e) {
+            e.printStackTrace();
+        }
+        return new Matrix(matrix);
+    }
+
     public static List<String> readListOfStrings(File input) {
         List<String> list = new ArrayList<>();
         try {
