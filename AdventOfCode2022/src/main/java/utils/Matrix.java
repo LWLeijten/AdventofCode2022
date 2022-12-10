@@ -63,10 +63,7 @@ public class Matrix {
         for (int y = 0; y < getHeight(); y++) {
             for (int x = 0; x < getWidth(); x++) {
                 int value = matrix.get(y).get(x);
-                int top = 0;
-                int bottom = 0;
-                int left = 0;
-                int right = 0;
+                int top = 0, bottom = 0, left = 0, right = 0;
                 // left
                 for (int xx = x - 1; xx >= 0; xx--) {
                     left++;

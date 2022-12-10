@@ -12,3 +12,4 @@ My solutions to the advent of code event 2022. For this edition I chose to solve
 | 6.  | :signal_strength:		 Tuning Trouble         | [link](https://adventofcode.com/2022/day/6) | [solution](https://github.com/LWLeijten/AdventofCode2022/tree/main/AdventOfCode2022/src/main/java/solutions/Day06.java) |
 | 7.  | :minidisc:		 No Space Left On Device       | [link](https://adventofcode.com/2022/day/7) | [solution](https://github.com/LWLeijten/AdventofCode2022/tree/main/AdventOfCode2022/src/main/java/solutions/Day07.java) |
 | 8.  | :evergreen_tree:		 Treetop Tree House      | [link](https://adventofcode.com/2022/day/8) | [solution](https://github.com/LWLeijten/AdventofCode2022/tree/main/AdventOfCode2022/src/main/java/solutions/Day08.java) |
+| 9.  | :bridge_at_night:		 Rope Bridge            | [link](https://adventofcode.com/2022/day/9) | [solution](https://github.com/LWLeijten/AdventofCode2022/tree/main/AdventOfCode2022/src/main/java/solutions/Day09.java) |

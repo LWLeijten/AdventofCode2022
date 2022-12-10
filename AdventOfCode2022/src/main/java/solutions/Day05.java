@@ -103,6 +103,6 @@ public class Day05 implements Day<String> {
         System.out.println("Part one: " + partOne);
         System.out.println("Part two: " + partTwo);
     }
-}
 
-record StackInstruction(Integer amount, Integer from, Integer to) {}
+    record StackInstruction(Integer amount, Integer from, Integer to) {}
+}
