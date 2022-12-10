@@ -27,7 +27,7 @@ public class Day10 implements Day<Integer> {
         char[][] screen = new char[height][width];
         for (int y = 0; y < 6; y++) {
             for (int x = 0; x < 40; x++) {
-                screen[y][x] = ' ';
+                screen[y][x] = '.';
             }
         }
         return screen;
@@ -77,12 +77,12 @@ public class Day10 implements Day<Integer> {
         int partOne = day10.runPartOne();
         System.out.println("Part one: " + partOne);
         day10.runPartTwo();
-        // #### #### ###  #### #  #  ##  #  # ###
-        //   # #    #  # #    #  # #  # #  # #  #
-        //  #  ###  ###  ###  #### #    #  # #  #
-        // #   #    #  # #    #  # # ## #  # ###
-        // #    #    #  # #    #  # #  # #  # #
-        // #### #    ###  #    #  #  ###  ##  #
+        // ####. #### .###.. ####. #..# ..##.. #..#. ###..
+        // ...#. #... .#..#. #.... #..# .#..#. #..#. #..#.
+        // ..#.. ###. .###.. ###.. #### .#.... #..#. #..#.
+        // .#... #... .#..#. #.... #..# .#.##. #..#. ###..
+        // #.... #... .#..#. #.... #..# .#..#. #..#. #....
+        // ####. #... .###.. #.... #..# ..###. .##.. #....
     }
 
     record CPU_Instruction(String operation, Integer value) {}
