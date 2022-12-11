@@ -14,3 +14,4 @@ My solutions to the advent of code event 2022. For this edition I chose to solve
 | 8.  | :evergreen_tree:		 Treetop Tree House      | [link](https://adventofcode.com/2022/day/8)  | [solution](https://github.com/LWLeijten/AdventofCode2022/tree/main/AdventOfCode2022/src/main/java/solutions/Day08.java) |
 | 9.  | :bridge_at_night:		 Rope Bridge            | [link](https://adventofcode.com/2022/day/9)  | [solution](https://github.com/LWLeijten/AdventofCode2022/tree/main/AdventOfCode2022/src/main/java/solutions/Day09.java) |
 | 10. | :desktop_computer:		 Cathode-Ray Tube      | [link](https://adventofcode.com/2022/day/10) | [solution](https://github.com/LWLeijten/AdventofCode2022/tree/main/AdventOfCode2022/src/main/java/solutions/Day10.java) |
+| 11. | :monkey:		 Monkey in the Middle            | [link](https://adventofcode.com/2022/day/11) | [solution](https://github.com/LWLeijten/AdventofCode2022/tree/main/AdventOfCode2022/src/main/java/solutions/Day11.java) |
