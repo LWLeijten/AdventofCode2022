@@ -33,25 +33,20 @@ public class Day11 implements Day<Long> {
                                 .mapToLong(Integer::valueOf)
                                 .boxed()
                                 .collect(Collectors.toList());
-                        break;
                     }
                     case 2 -> {
                         String[] split = line.split(" ");
                         curOperator = split[6];
                         curOperatorValue = split[7];
-                        break;
                     }
                     case 3 -> {
                         curDivisionTest = Integer.parseInt(line.replaceFirst("  Test: divisible by ", ""));
-                        break;
                     }
                     case 4 -> {
                         curTrueMonkey = Integer.parseInt(line.replaceFirst("    If true: throw to monkey ", ""));
-                        break;
                     }
                     case 5 -> {
                         curFalseMonkey = Integer.parseInt(line.replaceFirst("    If false: throw to monkey ", ""));
-                        break;
                     }
                     case 6 -> {
                         monkeys.add(new Monkey(
@@ -82,24 +77,9 @@ public class Day11 implements Day<Long> {
             for (Monkey monkey : monkeys) {
                 for (Long item : monkey.items) {
                     monkey.inspections++;
-                    if (monkey.operator.equals("+")) {
-                        if (monkey.operatorValue.equals("old")) {
-                            item = item + item;
-                        } else {
-                            item = item + Long.parseLong(monkey.operatorValue);
-                        }
-                    } else if (monkey.operator.equals("*")) {
-                        if (monkey.operatorValue.equals("old")) {
-                            item = item * item;
-                        } else {
-                            item = item * Long.parseLong(monkey.operatorValue);
-                        }
-                    }
-                    if (bigWorries) {
-                        item %= commonModulo;
-                    } else {
-                        item /= 3;
-                    }
+                    long other = monkey.operatorValue.equals("old") ? item : Long.parseLong(monkey.operatorValue);
+                    item = monkey.operator.equals("+") ? item + other : item * other;
+                    item = bigWorries ? item % commonModulo : item / 3;
                     if (item % monkey.divisionTest == 0) {
                         monkeys.get(monkey.trueMonkey).items.add(item);
                     } else {
