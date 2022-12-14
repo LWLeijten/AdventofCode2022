@@ -24,3 +24,6 @@ hs_err_pid*
 
 #IntelliJ
 **/.idea/**
+
+# input files
+AdventOfCode2022/inputs/*.txt
