@@ -1,7 +1,7 @@
 package solutions;
 
+import utils.Coordinate;
 import utils.Day;
-import utils.Pair;
 
 import java.io.File;
 import java.io.FileNotFoundException;
@@ -27,18 +27,13 @@ public class Day09 implements Day<Integer> {
         }
     }
 
-    private boolean pairsAreTouching(Pair<Integer> pairOne, Pair<Integer> pairTwo) {
-        return Math.abs(pairOne.elementOne - pairTwo.elementOne) <= 1
-                && Math.abs(pairOne.elementTwo - pairTwo.elementTwo) <= 1;
-    }
-
     private int simulateKnots(int knotCount) {
-        HashSet<Pair<Integer>> visited = new HashSet<>();
-        List<Pair<Integer>> knots = new ArrayList<>();
+        HashSet<Coordinate> visited = new HashSet<>();
+        List<Coordinate> knots = new ArrayList<>();
         for (int i = 0; i < knotCount; i++) {
-            knots.add(new Pair<Integer>(0, 0));
+            knots.add(new Coordinate(0, 0));
         }
-        Pair<Integer> head = knots.get(0);
+        Coordinate head = knots.get(0);
         visited.add(head.clone());
         for (RopeMotion rm : ropeMotionList) {
             for (int i = 0; i < rm.amount(); i++) {
@@ -54,8 +49,8 @@ public class Day09 implements Day<Integer> {
                     }
                     // follow
                     else {
-                        Pair<Integer> leader = knots.get(k - 1);
-                        Pair<Integer> follower = knots.get(k);
+                        Coordinate leader = knots.get(k - 1);
+                        Coordinate follower = knots.get(k);
                         // rows
                         if (leader.elementTwo.equals(follower.elementTwo)
                                 && Math.abs(leader.elementOne - follower.elementOne) == 2) {
@@ -67,7 +62,7 @@ public class Day09 implements Day<Integer> {
                             follower.elementTwo += leader.elementTwo > follower.elementTwo ? 1 : -1;
                         }
                         // diagonal move
-                        else if (!pairsAreTouching(leader, follower)) {
+                        else if (!leader.touchesOtherCoordinate(follower)) {
                             follower.elementOne += leader.elementOne > follower.elementOne ? 1 : -1;
                             follower.elementTwo += leader.elementTwo > follower.elementTwo ? 1 : -1;
                         }

@@ -1,7 +1,7 @@
 package solutions;
 
+import utils.Coordinate;
 import utils.Day;
-import utils.Pair;
 
 import java.io.File;
 import java.util.*;
@@ -11,8 +11,8 @@ import static utils.InputReadingUtils.readListOfStrings;
 public class Day12 implements Day<Integer> {
 
     int[][] map;
-    Pair<Integer> lowPoint;
-    Pair<Integer> highPoint;
+    Coordinate lowPoint;
+    Coordinate highPoint;
 
     public Day12(File file) {
         List<String> input = readListOfStrings(file);
@@ -22,10 +22,10 @@ public class Day12 implements Day<Integer> {
                 char c = input.get(y).charAt(x);
                 if (c == 'S') {
                     map[y][x] = 0;
-                    lowPoint = new Pair<>(x, y);
+                    lowPoint = new Coordinate(x, y);
                 } else if (c == 'E') {
                     map[y][x] = 27;
-                    highPoint = new Pair<>(x, y);
+                    highPoint = new Coordinate(x, y);
                 } else {
                     map[y][x] = c - 'a' + 1;
                 }
@@ -33,13 +33,13 @@ public class Day12 implements Day<Integer> {
         }
     }
 
-    public Integer bfs(Pair<Integer> startPos, boolean ascending, int target) {
-        Queue<Pair<Integer>> queue = new ArrayDeque<>();
-        HashSet<Pair<Integer>> explored = new HashSet<>();
-        HashMap<Pair<Integer>, Pair<Integer>> parentMappings = new HashMap<>();
+    public Integer bfs(Coordinate startPos, boolean ascending, int target) {
+        Queue<Coordinate> queue = new ArrayDeque<>();
+        HashSet<Coordinate> explored = new HashSet<>();
+        HashMap<Coordinate, Coordinate> parentMappings = new HashMap<>();
         queue.add(startPos);
         while (queue.size() > 0) {
-            Pair<Integer> loc = queue.poll();
+            Coordinate loc = queue.poll();
             explored.add(loc);
             if (map[loc.elementTwo][loc.elementOne] == target) {
                 int steps = 0;
@@ -49,7 +49,7 @@ public class Day12 implements Day<Integer> {
                 }
                 return steps;
             }
-            for (Pair<Integer> neighbour : getNeighbours(loc, ascending)) {
+            for (Coordinate neighbour : getValidNeighbours(loc, ascending)) {
                 if (!explored.contains(neighbour) && !queue.contains(neighbour)) {
                     queue.add(neighbour);
                     parentMappings.put(neighbour, loc);
@@ -59,22 +59,20 @@ public class Day12 implements Day<Integer> {
         return null;
     }
 
-    private List<Pair<Integer>> getNeighbours(Pair<Integer> loc, boolean ascending) {
-        List<Pair<Integer>> neighbours = new ArrayList<>();
-        List<Pair<Integer>> directions =
-                List.of(new Pair<>(-1, 0), new Pair<>(1, 0), new Pair<>(0, -1), new Pair<>(0, 1));
-        for (Pair<Integer> dir : directions) {
-            int nX = loc.elementOne + dir.elementOne;
-            int nY = loc.elementTwo + dir.elementTwo;
+    private List<Coordinate> getValidNeighbours(Coordinate loc, boolean ascending) {
+        List<Coordinate> validNeighbours = new ArrayList<>();
+        for (Coordinate dir : loc.getNeighbours(false)) {
+            int nX = dir.elementOne;
+            int nY = dir.elementTwo;
             if (nX >= 0 && nY >= 0 && nX < map[0].length && nY < map.length) {
                 if (ascending && (map[nY][nX] <= map[loc.elementTwo][loc.elementOne] + 1)) {
-                    neighbours.add(new Pair<>(nX, nY));
+                    validNeighbours.add(new Coordinate(nX, nY));
                 } else if (!ascending && map[nY][nX] >= map[loc.elementTwo][loc.elementOne] - 1) {
-                    neighbours.add(new Pair<>(nX, nY));
+                    validNeighbours.add(new Coordinate(nX, nY));
                 }
             }
         }
-        return neighbours;
+        return validNeighbours;
     }
 
     @Override

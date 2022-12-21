@@ -62,6 +62,20 @@ public class InputReadingUtils {
         return list;
     }
 
+    public static List<Integer> readListOfInts(File input) {
+        List<Integer> list = new ArrayList<>();
+        try {
+            Scanner scanner = new Scanner(input);
+            while (scanner.hasNextLine()) {
+                list.add(scanner.nextInt());
+            }
+            scanner.close();
+        } catch (FileNotFoundException e) {
+            e.printStackTrace();
+        }
+        return list;
+    }
+
     public static String readString(File input) {
         try {
             Scanner scanner = new Scanner(input);

@@ -1,7 +1,7 @@
 package solutions;
 
+import utils.Coordinate;
 import utils.Day;
-import utils.Pair;
 
 import java.io.File;
 import java.io.FileNotFoundException;
@@ -9,12 +9,12 @@ import java.util.HashSet;
 import java.util.Scanner;
 
 public class Day14 implements Day<Integer> {
-    HashSet<Pair<Integer>> tiles;
-    Pair<Integer> origin;
+    HashSet<Coordinate> tiles;
+    Coordinate origin;
     Integer maxHeight;
 
     public Day14(File file) {
-        origin = new Pair<>(500, 0);
+        origin = new Coordinate(500, 0);
         maxHeight = Integer.MIN_VALUE;
         try {
             Scanner scanner = new Scanner(file);
@@ -23,8 +23,8 @@ public class Day14 implements Day<Integer> {
                 String line = scanner.nextLine();
                 String[] corners = line.split(" -> ");
                 for (int i = 1; i < corners.length; i++) {
-                    Pair<Integer> cornerA = parsePairFromString(corners[i - 1]);
-                    Pair<Integer> cornerB = parsePairFromString(corners[i]);
+                    Coordinate cornerA = parsePairFromString(corners[i - 1]);
+                    Coordinate cornerB = parsePairFromString(corners[i]);
                     // Horizontal
                     if (cornerA.elementTwo.equals(cornerB.elementTwo)) {
                         for (int x = Math.min(cornerA.elementOne, cornerB.elementOne);
@@ -48,13 +48,13 @@ public class Day14 implements Day<Integer> {
         }
     }
 
-    Pair<Integer> parsePairFromString(String coordinate) {
+    Coordinate parsePairFromString(String coordinate) {
         String[] split = coordinate.split(",");
-        return new Pair<Integer>(Integer.parseInt(split[0]), Integer.parseInt(split[1]));
+        return new Coordinate(Integer.parseInt(split[0]), Integer.parseInt(split[1]));
     }
 
     void addPairToTileMap(int x, int y) {
-        tiles.add(new Pair<>(x, y));
+        tiles.add(new Coordinate(x, y));
         if (y > maxHeight) {
             maxHeight = y;
         }
@@ -64,7 +64,7 @@ public class Day14 implements Day<Integer> {
         int sandUnits = 0;
         // Drop sand units whilst we can
         while (true) {
-            Pair<Integer> sandUnit = origin.clone();
+            Coordinate sandUnit = origin.clone();
             // Drop the single sand unit
             while (true) {
                 // (abyss/floor edge cases respectively)
@@ -75,14 +75,14 @@ public class Day14 implements Day<Integer> {
                     break;
                 }
                 // Drop one step
-                if (!tiles.contains(new Pair<>(sandUnit.elementOne, sandUnit.elementTwo + 1))) {
+                if (!tiles.contains(new Coordinate(sandUnit.elementOne, sandUnit.elementTwo + 1))) {
                     sandUnit.elementTwo++;
                     continue;
-                } else if (!tiles.contains(new Pair<>(sandUnit.elementOne - 1, sandUnit.elementTwo + 1))) {
+                } else if (!tiles.contains(new Coordinate(sandUnit.elementOne - 1, sandUnit.elementTwo + 1))) {
                     sandUnit.elementOne--;
                     sandUnit.elementTwo++;
                     continue;
-                } else if (!tiles.contains(new Pair<>(sandUnit.elementOne + 1, sandUnit.elementTwo + 1))) {
+                } else if (!tiles.contains(new Coordinate(sandUnit.elementOne + 1, sandUnit.elementTwo + 1))) {
                     sandUnit.elementOne++;
                     sandUnit.elementTwo++;
                     continue;
